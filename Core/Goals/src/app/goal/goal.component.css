@@ -1,0 +1,18 @@
+body{
+    background-color: wheat;
+    font-family: 'Hina Mincho', serif;
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.bgcolor{
+    background-color: wheat;
+}
+ li {
+    list-style: none;
+    text-align: center;
+}
+.border1{
+ border: 1px dotted black;
+ padding-bottom: 5px;
+} 

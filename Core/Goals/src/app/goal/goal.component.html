@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hina+Mincho&display=swap" rel="stylesheet">
+  <title>Goals</title>
+</head>
+
+<body>
+  <div class="shadow-lg p-3 mb-5  rounded">
+    <div class="container">
+      <ng-progress></ng-progress>
+      <div>
+        <h1 style="text-align: center;font-weight: bold;">{{title}}</h1>
+        <hr style="border: 1px solid black;">
+      </div>
+      <div class="row">
+        <div class="col-md-6 border1">
+          <div *ngFor='let goal of goals;let i = index'>
+            <div>
+              <h4 id={{i}} appStrikethrough>{{goal.name}} due on {{goal.completeDate|date|uppercase}}</h4>
+              <button class="btn btn-primary" (click)='goToUrl(goal.id)'>View Details</button>
+              <button class="btn btn-outline-danger" (click)='deleteGoal(i)'>Delete Goal</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <app-goal-form (addGoal)="addNewGoal($event)"></app-goal-form>
+        </div>
+      </div>
+      <div>
+        <p *ngIf='goals.length > 6'>You have too many goals</p>
+        <div class="row">
+          <blockquote class="blockquote text-center">
+            <p class="mb-0">{{quote.quote}}</p>
+            <footer class="blockquote-footer"><cite>{{quote.author}}</cite></footer>
+          </blockquote>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+
+</html>
